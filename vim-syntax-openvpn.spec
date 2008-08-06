@@ -1,5 +1,5 @@
 %define		_vimdatadir	%{_datadir}/vim/vimfiles
-%define		_syntax		openvpn
+%define		syntax		openvpn
 Summary:	Vim syntax: Highlight code in OpenVPN config file
 Summary(pl.UTF-8):	Opis składni dla Vima: podświetlanie kodu wewnątrz plików konfiguracyjnych OpenVPN
 Name:		vim-syntax-openvpn
@@ -8,7 +8,7 @@ Release:	1
 License:	public domain
 Group:		Applications/Editors/Vim
 #Source0:	http://vim.sourceforge.net/scripts/download_script.php?src_id=8938
-Source0:	%{_syntax}.vim
+Source0:	%{syntax}.vim
 URL:		http://vim.sourceforge.net/scripts/script.php?script_id=1420
 # for _vimdatadir existence
 Requires:	vim >= 4:6.3.058-3
@@ -27,10 +27,10 @@ Ten skrypt podświetla kod w pliku konfiguracyjnym OpenVPN.
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_vimdatadir}/{syntax,ftdetect}
-install %{SOURCE0} $RPM_BUILD_ROOT%{_vimdatadir}/syntax/%{_syntax}.vim
+install %{SOURCE0} $RPM_BUILD_ROOT%{_vimdatadir}/syntax/%{syntax}.vim
 
-cat > $RPM_BUILD_ROOT%{_vimdatadir}/ftdetect/%{_syntax}.vim <<EOF
-au BufNewFile,BufRead *openvpn*/*.conf set filetype=%{_syntax}
+cat > $RPM_BUILD_ROOT%{_vimdatadir}/ftdetect/%{syntax}.vim <<EOF
+au BufNewFile,BufRead *openvpn*/*.conf set filetype=%{syntax}
 EOF
 
 %clean
